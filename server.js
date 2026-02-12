@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 const app = express();
@@ -6,7 +7,7 @@ app.use(express.json());
 
 /* ========= CONNECT DATABASE ========= */
 
-mongoose.connect("mongodb+srv://diya:diya123@cluster0.dous9by.mongodb.net/usersDB")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
